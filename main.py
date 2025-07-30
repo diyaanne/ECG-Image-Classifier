@@ -2,7 +2,7 @@ import tensorflow as tf
 from tensorflow import keras
 import joblib
 import streamlit as st 
-
+from tensorflow.keras.models import Model
 IMG_SIZE = (224, 224)
 
 
