@@ -41,7 +41,8 @@ def convert_tf_dataset(img_path, model):
     return data
 
 uploaded_file = st.file_uploader("upload an image", type = ["jpg", "jpeg","png" ]) 
-features = convert_tf_dataset(uploaded_file, model_frozen)
-prediction = model.predict(features)
-st.write("prediction: ", prediction)
+if uploaded_file is not None;
+    features = convert_tf_dataset(uploaded_file, model_frozen)
+    prediction = model.predict(features)
+    st.write("prediction: ", prediction)
 
