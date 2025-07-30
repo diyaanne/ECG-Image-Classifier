@@ -48,4 +48,5 @@ if uploaded_file is not None:
     features = convert_tf_dataset(uploaded_file, model_frozen)
     prediction = model.predict(features)
     st.write("prediction: ", labels[prediction[0]])
+    st.write("prediction: ", prediction[0])
 
