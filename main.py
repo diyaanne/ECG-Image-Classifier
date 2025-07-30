@@ -1,6 +1,7 @@
 import tensorflow as tf
 from tensorflow import keras
 import joblib
+import streamlit as st 
 
 IMG_SIZE = (224, 224)
 
@@ -37,4 +38,9 @@ def convert_tf_dataset(img_path, model):
     data = [model.predict(img_preprocessed, verbose=False)]
 
     return data
+
+uploaded_file = st.file_uploader("upload an image", type = ["jpg", "jpeg","png" ]) 
+features = convert_tf_dataset(uploaded_file, model_frozen)
+prediction = model.predict(features)
+st.write("prediction: ", prediction)
 
