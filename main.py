@@ -5,6 +5,7 @@ import streamlit as st
 from tensorflow.keras.models import Model
 import sklearn
 import numpy as np
+from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
 IMG_SIZE = (224, 224)
 
 
