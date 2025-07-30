@@ -4,6 +4,7 @@ import joblib
 import streamlit as st 
 from tensorflow.keras.models import Model
 import sklearn
+import numpy as np
 IMG_SIZE = (224, 224)
 
 
