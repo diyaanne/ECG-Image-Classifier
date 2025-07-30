@@ -38,7 +38,7 @@ def convert_tf_dataset(img_path, model):
     img_array = tf.keras.preprocessing.image.img_to_array(img)
     img_batch = np.expand_dims(img_array, axis=0)
     img_preprocessed = preprocess_input(img_batch)
-    data = [model.predict(img_preprocessed, verbose=False)]
+    data = model.predict(img_preprocessed, verbose=False)
 
     return data
 
