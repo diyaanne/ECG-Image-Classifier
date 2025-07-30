@@ -7,6 +7,7 @@ import sklearn
 import numpy as np
 from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
 IMG_SIZE = (224, 224)
+labels = ["History of MI", "Myocardial Infraction Patients", "Normal Person", "abnormal heartbeat"]
 
 
 # Download the model, valid alpha values [0.25,0.35,0.5,0.75,1]
@@ -46,5 +47,5 @@ uploaded_file = st.file_uploader("upload an image", type = ["jpg", "jpeg","png" 
 if uploaded_file is not None:
     features = convert_tf_dataset(uploaded_file, model_frozen)
     prediction = model.predict(features)
-    st.write("prediction: ", prediction)
+    st.write("prediction: ", labels[prediction[0]])
 
