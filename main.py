@@ -47,7 +47,7 @@ def convert_tf_dataset(img_path, model):
 uploaded_file = st.file_uploader("upload an image", type = ["jpg", "jpeg","png" ]) 
 
 if uploaded_file is not None:
-    img = cv2.imread(uploade_file, cv2.IMREAD_GRAYSCALE)
+    img = cv2.imread(uploaded_file, cv2.IMREAD_GRAYSCALE)
 
     img1 = img[300:1500, :]
     th, dst = cv2.threshold(img1,50,255, cv2.THRESH_BINARY)
