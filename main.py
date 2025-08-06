@@ -25,7 +25,7 @@ x = base_model.output
 model_frozen = Model(inputs=base_model.input,outputs=x)
 
 # Load the model from a .pkl file
-model = joblib.load('MLP_best_model.pkl')
+model = joblib.load('MLP_best_model.joblib')
 
 def convert_tf_dataset(img_path, model):
     # This function passes all images provided in PATH
