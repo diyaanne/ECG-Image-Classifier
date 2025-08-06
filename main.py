@@ -5,6 +5,7 @@ import streamlit as st
 from tensorflow.keras.models import Model
 import sklearn
 import numpy as np
+import cv2 
 from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
 IMG_SIZE = (224, 224)
 labels = ["History of MI", "Myocardial Infraction Patients", "Normal Person", "abnormal heartbeat"]
@@ -44,8 +45,13 @@ def convert_tf_dataset(img_path, model):
     return data
 
 uploaded_file = st.file_uploader("upload an image", type = ["jpg", "jpeg","png" ]) 
+
 if uploaded_file is not None:
-    features = convert_tf_dataset(uploaded_file, model_frozen)
+    img = cv2.imread(uploade_file, cv2.IMREAD_GRAYSCALE)
+
+    img1 = img[300:1500, :]
+    th, dst = cv2.threshold(img1,50,255, cv2.THRESH_BINARY)
+    features = convert_tf_dataset(dst, model_frozen)
     prediction = model.predict(features)
     st.write("prediction: ", labels[prediction[0]])
     st.write("prediction: ", prediction[0])
